@@ -6,6 +6,19 @@ alumnos = [
     {"nombre": "Sara", "nota": 9.0},
 ]
 
+
+def calcular_media(alumnos):
+    """Calcula y devuelve la nota media de una lista de alumnos.
+
+    Si la lista está vacía, devuelve 0.
+    """
+    if not alumnos:
+        return 0
+
+    total_notas = sum(alumno["nota"] for alumno in alumnos)
+    return total_notas / len(alumnos)
+
+
 contador_aprobados = 0
 
 for alumno in alumnos:
@@ -19,20 +32,5 @@ print(f"El número de alumnos aprobados es: {contador_aprobados}")
 print(f"El número de alumnos suspendidos es: {len(alumnos) - contador_aprobados}")
 print(f"El número de alumnos totales es: {len(alumnos)}")
 
-def calcular_promedio(alumnos):
-    """_summary_
-
-    Args:
-        alumnos (list): lista de diccionarios con la información de los alumnos
-
-    Returns:
-        float: la nota promedio de los alumnos
-    """
-    if len(alumnos) == 0:
-        return 0
-    total_notas = sum(alumno["nota"] for alumno in alumnos)
-    promedio = total_notas / len(alumnos)
-    return promedio
-
-promedio_general = calcular_promedio(alumnos)
-print(f"El promedio general de las notas es: {promedio_general:.2f}")
+media_grupo = calcular_media(alumnos)
+print(f"La media del grupo es: {media_grupo:.2f}")
